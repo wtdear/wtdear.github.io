@@ -94,4 +94,39 @@ body.light{
 #bgCanvas{position:fixed;left:0;top:0;width:100%;height:100%;z-index:-1;pointer-events:none}
 
 /* responsive */
-@media(max-width:880px){.header{flex-direction:column;align-items:flex-start;gap:12px}.footer{flex-direction:column}}
+@media(max-width:880px){
+  .header{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .footer{
+    flex-direction: column;
+  }
+}
+
+@media(max-width: 768px){
+  .topnav{
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 8px;
+  }
+  .topnav a{
+    flex: 1;
+    min-width: calc(50% - 8px);
+    text-align: center;
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+}
+
+@media(max-width: 480px){
+  .topnav a{
+    min-width: 100%;
+    font-size: 13px;
+  }
+  body{
+    padding: 16px;
+  }
+}
