@@ -130,3 +130,289 @@ body.light{
     padding: 16px;
   }
 }
+/* Games Section */
+.games-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.game-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(124, 92, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(124, 92, 255, 0.1);
+}
+
+.game-card h3 {
+  margin: 0 0 0.5rem 0;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.game-card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.game-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.game-tag {
+  background: rgba(124, 92, 255, 0.1);
+  color: rgba(124, 92, 255, 0.9);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(124, 92, 255, 0.2);
+}
+
+.coming-soon {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.coming-soon:hover {
+  transform: none;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+
+/* Game Container */
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.game-close-btn {
+  background: rgba(124, 92, 255, 0.1);
+  color: rgba(124, 92, 255, 0.9);
+  border: 1px solid rgba(124, 92, 255, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.game-close-btn:hover {
+  background: rgba(124, 92, 255, 0.2);
+}
+
+#game-container {
+  position: relative;
+  min-height: 400px;
+}
+
+/* Snake Game Styles */
+.stage {
+  position: relative;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#score {
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Controls Info */
+.controls-info {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.controls-info p {
+  margin: 0.5rem 0;
+}
+
+.controls-info kbd {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+/* Games Styles - Updated with image icon */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.game-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-card:not(.coming-soon):hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+    border-color: rgba(124, 92, 255, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.game-card:not(.coming-soon):hover .play-arrow {
+    transform: translateX(5px);
+    opacity: 1;
+}
+
+.game-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(79, 195, 161, 0.2) 0%, rgba(74, 111, 165, 0.2) 100%);
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.game-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.game-card:hover .game-icon-img {
+    transform: scale(1.05);
+}
+
+.game-info {
+    flex: 1;
+    min-width: 0; /* Для правильного обрезания текста */
+}
+
+.game-info h3 {
+    margin: 0 0 5px 0;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.game-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #a0aec0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.play-arrow {
+    color: #4fc3a1;
+    font-size: 18px;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.coming-soon {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.coming-soon:hover {
+    transform: none;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+}
+
+.coming-soon .game-icon {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Click anywhere hint */
+.game-card::after {
+    content: 'click';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to right, transparent, rgba(79, 195, 161, 0.1), transparent);
+    text-align: center;
+    font-size: 11px;
+    color: #4fc3a1;
+    padding: 3px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+}
+
+.game-card:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .game-card {
+        padding: 15px;
+    }
+    
+    .game-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .game-info h3 {
+        font-size: 16px;
+    }
+    
+    .game-info p {
+        font-size: 13px;
+    }
+}

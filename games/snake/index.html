@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>snake</title>
+    <link rel="stylesheet" href="snake.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <a href="../../index.html" class="back-home">
+        main site
+    </a>
+    
+    <div class="game-container">
+        <div class="game-header">
+            <h1>snake</h1>
+            <p>classic snake game</p>
+        </div>
+        
+        <div class="game-board">
+            <canvas id="gameCanvas" width="600" height="600"></canvas>
+            
+            <div class="game-controls">
+                <button id="startBtn" class="btn btn-start">
+                    <i class="fas fa-play"></i> start
+                </button>
+                <button id="pauseBtn" class="btn btn-pause">
+                    <i class="fas fa-pause"></i> pause
+                </button>
+                <button id="restartBtn" class="btn btn-restart">
+                    <i class="fas fa-redo"></i> restart
+                </button>
+            </div>
+            
+            <div class="mobile-controls">
+                <div class="mobile-btn" id="upBtn">
+                    <i class="fas fa-arrow-up"></i>
+                </div>
+            </div>
+            <div class="mobile-controls">
+                <div class="mobile-btn" id="leftBtn">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="mobile-btn" id="downBtn">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+                <div class="mobile-btn" id="rightBtn">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-info">
+            <div class="score-panel">
+                <div class="score-item">
+                    <span class="score-label">
+                        <i class="fas fa-star"></i> score
+                    </span>
+                    <span id="score" class="score-value">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-label">
+                        <i class="fas fa-trophy"></i> high Score
+                    </span>
+                    <span id="highScore" class="score-value">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-label">
+                        <i class="fas fa-chart-line"></i> level
+                    </span>
+                    <span id="level" class="score-value">1</span>
+                </div>
+            </div>
+            
+            <div class="controls-panel">
+                <h3><i class="fas fa-gamepad"></i> controls</h3>
+                <div class="control-keys">
+                    <div class="key-row">
+                        <div class="key"><i class="fas fa-arrow-up"></i></div>
+                    </div>
+                    <div class="key-row">
+                        <div class="key"><i class="fas fa-arrow-left"></i></div>
+                        <div class="key"><i class="fas fa-arrow-down"></i></div>
+                        <div class="key"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                    <p>u can use WASD</p>
+                </div>
+            </div>
+            
+            <div class="settings-panel">
+                <h3><i class="fas fa-cog"></i> settings</h3>
+                
+                <div class="setting">
+                    <label for="speed"><i class="fas fa-tachometer-alt"></i> speed:</label>
+                    <select id="speed">
+                        <option value="150">slow</option>
+                        <option value="100" selected>medium</option>
+                        <option value="70">fast</option>
+                    </select>
+                </div>
+                
+                <div class="setting">
+                    <label for="gridSize"><i class="fas fa-th-large"></i> grid size:</label>
+                    <select id="gridSize">
+                        <option value="15">15x15</option>
+                        <option value="20">20x20</option>
+                        <option value="25" selected>25x25</option>
+                    </select>
+                </div>
+                
+                <div class="setting">
+                    <label for="theme"><i class="fas fa-palette"></i> theme:</label>
+                    <select id="theme">
+                        <option value="classic" selected>classic</option>
+                        <option value="dark">dark</option>
+                        <option value="green">green</option>
+                        <option value="retro">retro</option>
+                    </select>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="game-over">
+        <div class="game-over-content">
+            <h2>game over</h2>
+            <p>your score:</p>
+            <div class="game-over-score">0</div>
+            <p>u can try again</p>
+            <button id="playAgainBtn" class="btn btn-start" style="margin: 10px;">
+                <i class="fas fa-redo"></i> play again
+            </button>
+            <a href="../../index.html" class="back-link">
+                <i class="fas fa-home"></i> back to main site
+            </a>
+        </div>
+    </div>
+    
+    <script src="snake.js"></script>
+    
+    <script>
+        document.getElementById('upBtn')?.addEventListener('click', () => {
+            const event = new KeyboardEvent('keydown', { key: 'ArrowUp' });
+            document.dispatchEvent(event);
+        });
+        
+        document.getElementById('downBtn')?.addEventListener('click', () => {
+            const event = new KeyboardEvent('keydown', { key: 'ArrowDown' });
+            document.dispatchEvent(event);
+        });
+        
+        document.getElementById('leftBtn')?.addEventListener('click', () => {
+            const event = new KeyboardEvent('keydown', { key: 'ArrowLeft' });
+            document.dispatchEvent(event);
+        });
+        
+        document.getElementById('rightBtn')?.addEventListener('click', () => {
+            const event = new KeyboardEvent('keydown', { key: 'ArrowRight' });
+            document.dispatchEvent(event);
+        });
+    </script>
+
+</body>
+</html>
