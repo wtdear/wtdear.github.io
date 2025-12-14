@@ -34,20 +34,24 @@
                 </button>
             </div>
             
+            <!-- ИСПРАВЛЕННЫЕ МОБИЛЬНЫЕ КНОПКИ -->
             <div class="mobile-controls">
-                <div class="mobile-btn" id="upBtn">
-                    <i class="fas fa-arrow-up"></i>
-                </div>
-            </div>
-            <div class="mobile-controls">
-                <div class="mobile-btn" id="leftBtn">
-                    <i class="fas fa-arrow-left"></i>
-                </div>
-                <div class="mobile-btn" id="downBtn">
-                    <i class="fas fa-arrow-down"></i>
-                </div>
-                <div class="mobile-btn" id="rightBtn">
-                    <i class="fas fa-arrow-right"></i>
+                <div class="mobile-controls-grid">
+                    <button class="mobile-btn" id="upBtn">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                    <button class="mobile-btn" id="leftBtn">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button class="mobile-btn" id="downBtn">
+                        <i class="fas fa-arrow-down"></i>
+                    </button>
+                    <button class="mobile-btn" id="rightBtn">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="mobile-btn" id="mobilePauseBtn">
+                        <i class="fas fa-pause"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -85,7 +89,16 @@
                         <div class="key"><i class="fas fa-arrow-down"></i></div>
                         <div class="key"><i class="fas fa-arrow-right"></i></div>
                     </div>
-                    <p>u can use WASD</p>
+                    <p style="margin-top: 10px;">u can use WASD</p>
+                    <div class="instructions">
+                        <ul>
+                            <li><i class="fas fa-arrow-up"></i> / W - Move Up</li>
+                            <li><i class="fas fa-arrow-down"></i> / S - Move Down</li>
+                            <li><i class="fas fa-arrow-left"></i> / A - Move Left</li>
+                            <li><i class="fas fa-arrow-right"></i> / D - Move Right</li>
+                            <li><i class="fas fa-space-shuttle"></i> Space - Pause</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             
@@ -95,8 +108,8 @@
                 <div class="setting">
                     <label for="speed"><i class="fas fa-tachometer-alt"></i> speed:</label>
                     <select id="speed">
-                        <option value="150">slow</option>
-                        <option value="100" selected>medium</option>
+                        <option value="150" selected>slow</option>
+                        <option value="100">medium</option>
                         <option value="70">fast</option>
                     </select>
                 </div>
@@ -104,9 +117,9 @@
                 <div class="setting">
                     <label for="gridSize"><i class="fas fa-th-large"></i> grid size:</label>
                     <select id="gridSize">
-                        <option value="15">15x15</option>
+                        <option value="15" selected>15x15</option>
                         <option value="20">20x20</option>
-                        <option value="25" selected>25x25</option>
+                        <option value="25">25x25</option>
                     </select>
                 </div>
                 
@@ -119,49 +132,86 @@
                         <option value="retro">retro</option>
                     </select>
                 </div>
-                
             </div>
         </div>
     </div>
     
-    <div class="game-over">
-        <div class="game-over-content">
-            <h2>game over</h2>
-            <p>your score:</p>
-            <div class="game-over-score">0</div>
-            <p>u can try again</p>
-            <button id="playAgainBtn" class="btn btn-start" style="margin: 10px;">
+<div class="game-over">
+    <div class="game-over-content">
+        <!-- КНОПКА ЗАКРЫТИЯ -->
+        <button id="closeGameOver" class="close-game-over">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <h2>game over</h2>
+        <p>your score:</p>
+        <div class="game-over-score">0</div>
+        
+        <div class="game-over-buttons">
+            <button id="playAgainBtn" class="btn btn-start">
                 <i class="fas fa-redo"></i> play again
             </button>
-            <a href="../../index.html" class="back-link">
-                <i class="fas fa-home"></i> back to main site
+            <a href="../../index.html" class="btn btn-home">
+                <i class="fas fa-home"></i> main site
             </a>
         </div>
     </div>
+</div>
     
     <script src="snake.js"></script>
     
     <script>
-        document.getElementById('upBtn')?.addEventListener('click', () => {
-            const event = new KeyboardEvent('keydown', { key: 'ArrowUp' });
-            document.dispatchEvent(event);
-        });
-        
-        document.getElementById('downBtn')?.addEventListener('click', () => {
-            const event = new KeyboardEvent('keydown', { key: 'ArrowDown' });
-            document.dispatchEvent(event);
-        });
-        
-        document.getElementById('leftBtn')?.addEventListener('click', () => {
-            const event = new KeyboardEvent('keydown', { key: 'ArrowLeft' });
-            document.dispatchEvent(event);
-        });
-        
-        document.getElementById('rightBtn')?.addEventListener('click', () => {
-            const event = new KeyboardEvent('keydown', { key: 'ArrowRight' });
-            document.dispatchEvent(event);
+        // Инициализация мобильных кнопок
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileUpBtn = document.getElementById('upBtn');
+            const mobileDownBtn = document.getElementById('downBtn');
+            const mobileLeftBtn = document.getElementById('leftBtn');
+            const mobileRightBtn = document.getElementById('rightBtn');
+            const mobilePauseBtn = document.getElementById('mobilePauseBtn');
+            
+            // Добавляем обработчики для мобильных кнопок
+            if (mobileUpBtn) {
+                mobileUpBtn.addEventListener('click', () => {
+                    const event = new KeyboardEvent('keydown', { key: 'ArrowUp' });
+                    document.dispatchEvent(event);
+                });
+            }
+            
+            if (mobileDownBtn) {
+                mobileDownBtn.addEventListener('click', () => {
+                    const event = new KeyboardEvent('keydown', { key: 'ArrowDown' });
+                    document.dispatchEvent(event);
+                });
+            }
+            
+            if (mobileLeftBtn) {
+                mobileLeftBtn.addEventListener('click', () => {
+                    const event = new KeyboardEvent('keydown', { key: 'ArrowLeft' });
+                    document.dispatchEvent(event);
+                });
+            }
+            
+            if (mobileRightBtn) {
+                mobileRightBtn.addEventListener('click', () => {
+                    const event = new KeyboardEvent('keydown', { key: 'ArrowRight' });
+                    document.dispatchEvent(event);
+                });
+            }
+            
+            if (mobilePauseBtn) {
+                mobilePauseBtn.addEventListener('click', () => {
+                    const event = new KeyboardEvent('keydown', { key: ' ' });
+                    document.dispatchEvent(event);
+                });
+            }
+            
+            // Обновляем настройки по умолчанию
+            const speedSelect = document.getElementById('speed');
+            const gridSizeSelect = document.getElementById('gridSize');
+            
+            if (speedSelect) speedSelect.value = "150";
+            if (gridSizeSelect) gridSizeSelect.value = "15";
         });
     </script>
-
 </body>
 </html>

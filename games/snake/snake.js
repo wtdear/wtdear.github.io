@@ -8,13 +8,13 @@ class SnakeGame {
         this.food = {};
         this.direction = 'right';
         this.nextDirection = 'right';
-        this.gameSpeed = 80;
+        this.gameSpeed = 150; // Медленная начальная скорость
         this.score = 0;
         this.highScore = localStorage.getItem('snakeHighScore') || 0;
         this.level = 1;
         this.isPlaying = false;
         this.isPaused = false;
-        this.gridSize = 25;
+        this.gridSize = 15; // Стандартный размер поля 15x15
         
         // DOM elements
         this.scoreElement = document.getElementById('score');
@@ -33,16 +33,22 @@ class SnakeGame {
     initGame() {
         // Reset game state
         this.snake = [
-            {x: 5, y: 12},
-            {x: 4, y: 12},
-            {x: 3, y: 12}
+            {x: 5, y: 7},
+            {x: 4, y: 7},
+            {x: 3, y: 7}
         ];
         
         this.direction = 'right';
         this.nextDirection = 'right';
         this.score = 0;
         this.level = 1;
-        this.gameSpeed = parseInt(this.speedSelect.value);
+        this.gameSpeed = parseInt(this.speedSelect.value) || 150;
+        
+        // Set speed select to slowest
+        this.speedSelect.value = "150";
+        
+        // Set grid size select to 15
+        this.gridSizeSelect.value = "15";
         
         // Generate first food
         this.generateFood();
@@ -57,38 +63,37 @@ class SnakeGame {
         this.draw();
     }
 
-    setupEventListeners() {
-        // Keyboard controls
-        document.addEventListener('keydown', (e) => {
-            if (!this.isPlaying) return;
-            
-            switch(e.key) {
-                case 'ArrowUp':
-                case 'w':
-                case 'W':
-                    if (this.direction !== 'down') this.nextDirection = 'up';
-                    break;
-                case 'ArrowDown':
-                case 's':
-                case 'S':
-                    if (this.direction !== 'up') this.nextDirection = 'down';
-                    break;
-                case 'ArrowLeft':
-                case 'a':
-                case 'A':
-                    if (this.direction !== 'right') this.nextDirection = 'left';
-                    break;
-                case 'ArrowRight':
-                case 'd':
-                case 'D':
-                    if (this.direction !== 'left') this.nextDirection = 'right';
-                    break;
-                case ' ':
-                    e.preventDefault();
-                    this.togglePause();
-                    break;
-            }
-        });
+setupEventListeners() {
+    // Keyboard controls
+    document.addEventListener('keydown', (e) => {
+        if (!this.isPlaying || this.isPaused) return;
+        
+        const key = e.key.toLowerCase();
+        
+        switch(key) {
+            case 'arrowup':
+            case 'w':
+                if (this.direction !== 'down') this.nextDirection = 'up';
+                break;
+            case 'arrowdown':
+            case 's':
+                if (this.direction !== 'up') this.nextDirection = 'down';
+                break;
+            case 'arrowleft':
+            case 'a':
+                if (this.direction !== 'right') this.nextDirection = 'left';
+                break;
+            case 'arrowright':
+            case 'd':
+                if (this.direction !== 'left') this.nextDirection = 'right';
+                break;
+            case ' ':
+                e.preventDefault();
+                this.togglePause();
+                break;
+        }
+        
+    });
 
         // Button controls
         document.getElementById('startBtn').addEventListener('click', () => this.startGame());
@@ -98,6 +103,51 @@ class SnakeGame {
             document.querySelector('.game-over').style.display = 'none';
             this.restartGame();
             this.startGame();
+        });
+
+        // Touch events for swipe controls
+        let touchStartX = 0;
+        let touchStartY = 0;
+        
+        this.canvas.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            e.preventDefault();
+        });
+        
+        this.canvas.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+        });
+        
+        this.canvas.addEventListener('touchend', (e) => {
+            if (!this.isPlaying || this.isPaused) return;
+            
+            const touchEndX = e.changedTouches[0].clientX;
+            const touchEndY = e.changedTouches[0].clientY;
+            
+            const diffX = touchEndX - touchStartX;
+            const diffY = touchEndY - touchStartY;
+            
+            // Minimum swipe distance
+            if (Math.abs(diffX) < 30 && Math.abs(diffY) < 30) return;
+            
+            if (Math.abs(diffX) > Math.abs(diffY)) {
+                // Horizontal swipe
+                if (diffX > 0 && this.direction !== 'left') {
+                    this.nextDirection = 'right';
+                } else if (diffX < 0 && this.direction !== 'right') {
+                    this.nextDirection = 'left';
+                }
+            } else {
+                // Vertical swipe
+                if (diffY > 0 && this.direction !== 'up') {
+                    this.nextDirection = 'down';
+                } else if (diffY < 0 && this.direction !== 'down') {
+                    this.nextDirection = 'up';
+                }
+            }
+            
+            e.preventDefault();
         });
 
         // Settings
@@ -213,13 +263,32 @@ class SnakeGame {
 
     generateFood() {
         let foodPosition;
+        const maxAttempts = 100;
+        let attempts = 0;
+        
         do {
             foodPosition = {
                 x: Math.floor(Math.random() * this.gridSize),
                 y: Math.floor(Math.random() * this.gridSize)
             };
-        } while (this.snake.some(segment => 
-            segment.x === foodPosition.x && segment.y === foodPosition.y));
+            attempts++;
+        } while (
+            this.snake.some(segment => 
+                segment.x === foodPosition.x && segment.y === foodPosition.y
+            ) && attempts < maxAttempts
+        );
+        
+        // If couldn't find empty spot, create food at a default position
+        if (attempts >= maxAttempts) {
+            for (let y = 0; y < this.gridSize; y++) {
+                for (let x = 0; x < this.gridSize; x++) {
+                    if (!this.snake.some(segment => segment.x === x && segment.y === y)) {
+                        foodPosition = {x, y};
+                        break;
+                    }
+                }
+            }
+        }
         
         this.food = foodPosition;
     }
@@ -242,8 +311,10 @@ class SnakeGame {
             }
         });
         
-        // Draw food
-        this.drawCell(this.food.x, this.food.y, 'food');
+        // Draw food (apple)
+        if (this.food && typeof this.food.x !== 'undefined') {
+            this.drawCell(this.food.x, this.food.y, 'food');
+        }
     }
 
     drawGrid() {
@@ -280,9 +351,9 @@ class SnakeGame {
                 this.ctx.shadowColor = this.getSnakeColor();
                 this.ctx.shadowBlur = 10;
                 this.ctx.beginPath();
-                this.ctx.roundRect(pixelX + padding, pixelY + padding, 
-                                 this.cellSize - padding * 2, 
-                                 this.cellSize - padding * 2, 6);
+                this.roundRect(pixelX + padding, pixelY + padding, 
+                             this.cellSize - padding * 2, 
+                             this.cellSize - padding * 2, 6);
                 this.ctx.fill();
                 break;
                 
@@ -290,26 +361,79 @@ class SnakeGame {
                 this.ctx.fillStyle = this.getSnakeColor();
                 this.ctx.globalAlpha = 0.8;
                 this.ctx.beginPath();
-                this.ctx.roundRect(pixelX + padding, pixelY + padding, 
-                                 this.cellSize - padding * 2, 
-                                 this.cellSize - padding * 2, 4);
+                this.roundRect(pixelX + padding, pixelY + padding, 
+                             this.cellSize - padding * 2, 
+                             this.cellSize - padding * 2, 4);
                 this.ctx.fill();
                 break;
                 
             case 'food':
-                this.ctx.fillStyle = this.getFoodColor();
-                this.ctx.shadowColor = this.getFoodColor();
-                this.ctx.shadowBlur = 15;
-                this.ctx.beginPath();
-                this.ctx.arc(pixelX + this.cellSize / 2, 
-                           pixelY + this.cellSize / 2, 
-                           (this.cellSize - padding * 2) / 2, 
-                           0, Math.PI * 2);
-                this.ctx.fill();
+                // Draw apple instead of red circle
+                this.drawApple(pixelX, pixelY);
                 break;
         }
         
         this.ctx.restore();
+    }
+
+    drawApple(pixelX, pixelY) {
+        const size = this.cellSize - 4;
+        const centerX = pixelX + this.cellSize / 2;
+        const centerY = pixelY + this.cellSize / 2;
+        const radius = size / 2;
+        
+        // Save context
+        this.ctx.save();
+        
+        // Shadow for apple
+        this.ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+        this.ctx.shadowBlur = 10;
+        this.ctx.shadowOffsetY = 3;
+        
+        // Main apple body
+        this.ctx.fillStyle = this.getAppleColor();
+        this.ctx.beginPath();
+        this.ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+        this.ctx.fill();
+        
+        // Apple highlight
+        this.ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+        this.ctx.beginPath();
+        this.ctx.arc(centerX - radius * 0.3, centerY - radius * 0.3, radius * 0.2, 0, Math.PI * 2);
+        this.ctx.fill();
+        
+        // Reset shadow for stem and leaf
+        this.ctx.shadowColor = 'transparent';
+        this.ctx.shadowBlur = 0;
+        this.ctx.shadowOffsetY = 0;
+        
+        // Apple stem (brown)
+        this.ctx.fillStyle = '#8B4513';
+        this.ctx.beginPath();
+        this.ctx.fillRect(centerX - 1, centerY - radius - 4, 2, 5);
+        
+        // Apple leaf (green)
+        this.ctx.fillStyle = '#228B22';
+        this.ctx.beginPath();
+        this.ctx.ellipse(centerX + 3, centerY - radius - 1, 4, 2, Math.PI / 4, 0, Math.PI * 2);
+        this.ctx.fill();
+        
+        this.ctx.restore();
+    }
+
+    // Custom roundRect method
+    roundRect(x, y, width, height, radius) {
+        if (width < 2 * radius) radius = width / 2;
+        if (height < 2 * radius) radius = height / 2;
+        
+        this.ctx.beginPath();
+        this.ctx.moveTo(x + radius, y);
+        this.ctx.arcTo(x + width, y, x + width, y + height, radius);
+        this.ctx.arcTo(x + width, y + height, x, y + height, radius);
+        this.ctx.arcTo(x, y + height, x, y, radius);
+        this.ctx.arcTo(x, y, x + width, y, radius);
+        this.ctx.closePath();
+        return this.ctx;
     }
 
     drawEyes(x, y) {
@@ -373,13 +497,13 @@ class SnakeGame {
         }
     }
 
-    getFoodColor() {
+    getAppleColor() {
         const theme = this.themeSelect.value;
         switch(theme) {
-            case 'dark': return '#03DAC6';
-            case 'green': return '#FF4081';
-            case 'retro': return '#4ECDC4';
-            default: return '#FF5252';
+            case 'dark': return '#FF5252'; // Красное яблоко
+            case 'green': return '#FF4081'; // Розовое яблоко
+            case 'retro': return '#FF6B6B'; // Светло-красное яблоко
+            default: return '#FF0000'; // Классическое красное яблоко
         }
     }
 
@@ -410,8 +534,10 @@ class SnakeGame {
         const gameOverScreen = document.querySelector('.game-over');
         const finalScore = document.querySelector('.game-over-score');
         
-        finalScore.textContent = this.score;
-        gameOverScreen.style.display = 'flex';
+        if (gameOverScreen && finalScore) {
+            finalScore.textContent = this.score;
+            gameOverScreen.style.display = 'flex';
+        }
         
         // Update start button
         document.getElementById('startBtn').disabled = false;
@@ -421,6 +547,58 @@ class SnakeGame {
 // Initialize game when page loads
 document.addEventListener('DOMContentLoaded', () => {
     const game = new SnakeGame();
+    
+    // Add event listener for close game over button
+    const closeGameOverBtn = document.getElementById('closeGameOver');
+    if (closeGameOverBtn) {
+        closeGameOverBtn.addEventListener('click', () => {
+            const gameOverScreen = document.querySelector('.game-over');
+            if (gameOverScreen) {
+                gameOverScreen.style.display = 'none';
+            }
+        });
+    }
+    
+    // Initialize mobile control buttons
+    const mobileUpBtn = document.getElementById('upBtn');
+    const mobileDownBtn = document.getElementById('downBtn');
+    const mobileLeftBtn = document.getElementById('leftBtn');
+    const mobileRightBtn = document.getElementById('rightBtn');
+    
+    const handleMobileControl = (direction) => {
+        if (!game.isPlaying || game.isPaused) return;
+        
+        switch(direction) {
+            case 'up':
+                if (game.direction !== 'down') game.nextDirection = 'up';
+                break;
+            case 'down':
+                if (game.direction !== 'up') game.nextDirection = 'down';
+                break;
+            case 'left':
+                if (game.direction !== 'right') game.nextDirection = 'left';
+                break;
+            case 'right':
+                if (game.direction !== 'left') game.nextDirection = 'right';
+                break;
+        }
+    };
+    
+    if (mobileUpBtn) {
+        mobileUpBtn.addEventListener('click', () => handleMobileControl('up'));
+    }
+    
+    if (mobileDownBtn) {
+        mobileDownBtn.addEventListener('click', () => handleMobileControl('down'));
+    }
+    
+    if (mobileLeftBtn) {
+        mobileLeftBtn.addEventListener('click', () => handleMobileControl('left'));
+    }
+    
+    if (mobileRightBtn) {
+        mobileRightBtn.addEventListener('click', () => handleMobileControl('right'));
+    }
     
     // Polyfill for roundRect if not supported
     if (!CanvasRenderingContext2D.prototype.roundRect) {

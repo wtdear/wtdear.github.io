@@ -10,6 +10,7 @@ body {
     color: #fff;
     min-height: 100vh;
     padding: 20px;
+    padding-bottom: 100px; /* Добавлено для мобильных кнопок */
 }
 
 .back-home {
@@ -95,6 +96,8 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
+    min-width: 140px;
+    justify-content: center;
 }
 
 .btn-start {
@@ -117,17 +120,42 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* КОМПАКТНЫЕ МОБИЛЬНЫЕ КНОПКИ - ИСПРАВЛЕНО */
 .mobile-controls {
     display: none;
-    gap: 20px;
-    margin-top: 20px;
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 0 20px;
+}
+
+.mobile-controls-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 8px;
+    max-width: 300px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .mobile-btn {
-    width: 60px;
-    height: 60px;
+    width: 100%;
+    aspect-ratio: 1;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -135,11 +163,46 @@ body {
     cursor: pointer;
     border: 2px solid rgba(255, 255, 255, 0.2);
     transition: all 0.2s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .mobile-btn:active {
     background: rgba(255, 255, 255, 0.2);
-    transform: scale(0.95);
+    transform: scale(0.9);
+}
+
+/* Позиционирование кнопок в сетке */
+#upBtn {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+#leftBtn {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#downBtn {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+#rightBtn {
+    grid-column: 4;
+    grid-row: 2;
+}
+
+/* Центральная кнопка паузы */
+#mobilePauseBtn {
+    grid-column: 3;
+    grid-row: 3;
+    background: rgba(255, 180, 3, 0.2);
+    border-color: rgba(255, 180, 3, 0.3);
+}
+
+#mobilePauseBtn:active {
+    background: rgba(255, 180, 3, 0.3);
 }
 
 .game-info {
@@ -237,6 +300,7 @@ select {
     padding: 8px 15px;
     border-radius: 6px;
     cursor: pointer;
+    min-width: 150px;
 }
 
 select option {
@@ -292,33 +356,97 @@ select option {
     color: #00b4d8;
 }
 
-/* Responsive */
+/* RESPONSIVE */
 @media (max-width: 768px) {
+    body {
+        padding: 10px;
+        padding-bottom: 120px; /* Увеличено для мобильных кнопок */
+    }
+    
     .game-header h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        margin-top: 40px;
+    }
+    
+    .back-home {
+        top: 10px;
+        left: 10px;
+        padding: 8px 15px;
+        font-size: 0.9rem;
     }
     
     #gameCanvas {
         width: 95vw;
         height: 95vw;
-        max-width: 500px;
-        max-height: 500px;
+        max-width: 450px;
+        max-height: 450px;
     }
     
     .mobile-controls {
-        display: flex;
+        display: block;
     }
     
     .game-info {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
     
     .game-controls {
         flex-wrap: wrap;
         justify-content: center;
+        gap: 10px;
+    }
+    
+    .btn {
+        min-width: 120px;
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    
+    .score-panel,
+    .controls-panel,
+    .settings-panel {
+        padding: 15px;
+    }
+    
+    .score-value {
+        font-size: 1.5rem;
+    }
+    
+    .game-over-content {
+        padding: 30px 20px;
+    }
+    
+    .game-over h2 {
+        font-size: 2.5rem;
+    }
+    
+    .game-over-score {
+        font-size: 3rem;
     }
 }
-/* Snake Game Specific Styles */
+
+@media (max-width: 480px) {
+    .mobile-controls-grid {
+        max-width: 250px;
+        padding: 10px;
+    }
+    
+    .mobile-btn {
+        font-size: 1.2rem;
+    }
+    
+    .game-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .btn {
+        min-width: 100px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Snake Game Specific Styles - ОСТАВЛЕНО БЕЗ ИЗМЕНЕНИЙ */
 
 :root {
     /* Color themes */
@@ -455,4 +583,128 @@ select option {
 
 .instructions i {
     color: #00b4d8;
+}
+.close-game-over {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.close-game-over:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+.close-game-over i {
+    font-size: 1.2rem;
+    color: #ff6b6b;
+}
+
+/* Анимация для яблока */
+.apple {
+    position: relative;
+}
+
+.apple::before {
+    content: "";
+    position: absolute;
+    top: -15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8%;
+    height: 20%;
+    background: #8B4513;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.apple::after {
+    content: "";
+    position: absolute;
+    top: -25%;
+    left: 52%;
+    width: 5%;
+    height: 30%;
+    background: #228B22;
+    border-radius: 50% 50% 0 0;
+    transform: rotate(-20deg);
+}
+
+/* Анимация падения яблока */
+@keyframes appleFall {
+    0% {
+        transform: translateY(-20px) rotate(0deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+.apple-appear {
+    animation: appleFall 0.5s ease-out;
+}
+
+.game-over-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-home {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 140px;
+    justify-content: center;
+    text-decoration: none;
+    background: linear-gradient(135deg, #9d4edd, #5a189a);
+    color: white;
+}
+
+.btn-home:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+    .game-over-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn, .btn-home {
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn, .btn-home {
+        min-width: 180px;
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
 }
