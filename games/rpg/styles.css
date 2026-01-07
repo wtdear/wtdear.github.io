@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=MedievalSharp&display=swap');
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'MedievalSharp', serif;
+    background: radial-gradient(circle at top, #151922, #0b0e14);
+    color: #e6e1cf;
+    line-height: 1.7;
+    font-size: 17px;
+}
+
+
+/* Заголовок */
+header {
+    background: linear-gradient(to bottom, #1b1f2a, #0b0e14);
+    border-bottom: 2px solid #3a1f1f;
+    padding: 24px;
+    text-align: center;
+}
+
+header h1,
+h2 {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+
+/* Навигация */
+nav {
+    margin-top: 12px;
+}
+
+nav a {
+    color: #e6e1cf;
+    margin: 0 14px;
+    text-decoration: none;
+    position: relative;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: #a33a3a;
+    transition: width 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Контент */
+main {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+section {
+    margin-bottom: 50px;
+    padding: 24px;
+    background: rgba(20, 24, 35, 0.7);
+    border: 1px solid #2e3448;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+h2 {
+    font-family: 'Uncial Antiqua', serif;
+    color: #cfa36a;
+    border-bottom: 1px solid #3a1f1f;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+}
+
+/* Код */
+pre {
+    background: #0e111a;
+    border-left: 4px solid #a33a3a;
+    padding: 16px;
+    overflow-x: auto;
+    color: #cfd2e3;
+}
+
+/* Футер */
+footer {
+    background: #0b0e14;
+    text-align: center;
+    padding: 14px;
+    color: #777;
+    border-top: 1px solid #2e3448;
+}
+#fog-layer {
+    mix-blend-mode: screen;
+}
