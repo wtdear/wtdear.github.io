@@ -24,9 +24,9 @@ body {
     /* Оставьте ваш красивый градиентный фон */
     background: 
         radial-gradient(
-            ellipse at 10% 10%,
-            rgba(124, 92, 255, 0.08) 0%,
-            transparent 40%
+            ellipse at 50% 0%,
+            rgba(128, 12, 124, 0.619) 0%,
+            transparent 85%
         ),
         radial-gradient(
             ellipse at 90% 90%,
@@ -43,17 +43,6 @@ body {
     background-attachment: fixed; /* Фон фиксируется */
     background-size: cover; /* Фон покрывает всю область */
     background-repeat: no-repeat; /* Не повторять фон */
-}
-
-/* Light theme */
-body.light{
-  --bg: #f6f8fb;
-  --card: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01));
-  --glass-border: rgba(0,0,0,0.06);
-  --accent: #5b46ff;
-  --muted: rgba(0,0,0,0.6);
-  --text: #0f1724;
-  background: radial-gradient(900px 400px at 10% 10%, rgba(92,66,255,0.03), transparent), #f6f8fb;
 }
 
 /* Layout */
