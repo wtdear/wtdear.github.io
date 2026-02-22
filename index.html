@@ -10,7 +10,9 @@
 <body>
   <header class="header bento-card">
     <div class="header-left">
-      <div class="avatar"><img src="avatar.jpg" alt="Avatar"></div>
+      <a href="https://t.me/kolbaya1" target="_blank" class="avatar-link">
+        <div class="avatar"><img src="avatar.jpg" alt="Avatar"></div>
+      </a>
       <div class="title">
         <h1>Johhny Kolbaya</h1>
         <a class="email" href="mailto:den.kolbaya@yandex.ru">den.kolbaya@yandex.ru</a>
@@ -92,19 +94,6 @@
                     </div>
                 </div>
 
-                <div class="game-card" onclick="window.location.href='https://github.com/wtdear/todo_list';">
-                    <div class="game-icon"> 
-                        <img src="icons/todo.svg" alt="simple console application" class="game-icon-img">
-                    </div>
-                    <div class="game-info">
-                        <h3>To-Do List (python)</h3>
-                        <p>click to download</p>
-                    </div>
-                    <div class="play-arrow">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
-
                 <div class="game-card coming-soon">
                     <div class="game-icon">
                         <i class="fas fa-clock"></i>
@@ -114,6 +103,7 @@
                         <p>idk when</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -175,15 +165,11 @@
     <!-- CONTACTS -->
     <section id="contacts" class="section bento-card">
       <div class="section-head">
-        <h2>Contacts</h2>
+        <h2>Contact</h2>
         <div class="muted sub-note">please write to me</div>
       </div>
       <div class="section-body">
         <div class="contacts-grid">
-          <a class="contact-card" href="https://t.me/kolbaya1" target="_blank" title="Telegram @kolbaya1">
-            <img src="icons/tg.svg" alt="Telegram">
-          <a class="contact-card" href="https://vk.com/zerro414" title="VK">
-            <img src="icons/vk.svg" alt="VK">
           </a>
           <a class="contact-card" href="mailto:den.kolbaya@yandex.ru" title="Email">
             <img src="icons/mail.svg" alt="Email">
@@ -192,11 +178,44 @@
       </div>
     </section>
 
-    <footer class="footer bento-card">
-      <div class="widget"><div>About</div><a href="#about">welcome</a></div>
-      <div class="widget"><div>Skills</div><a href="#skills">to my</a></div>
-      <div class="widget"><div>Contacts</div><a href="#contacts">space</a></div>
-    </footer>
+<footer class="footer bento-card">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3 class="footer-title">Navigation</h3>
+      <div class="footer-links">
+        <a href="#about" class="footer-link">✦ About me</a>
+        <a href="#skills" class="footer-link">⚡ Skills</a>
+        <a href="#contacts" class="footer-link">📡 Contact</a>
+      </div>
+    </div>
+    
+    <div class="footer-section">
+      <h3 class="footer-title">Links</h3>
+      <div class="footer-social">
+        <a href="https://t.me/kolbaya1" target="_blank" class="social-icon" title="Telegram">
+          <img src="icons/tg.svg" alt="TG">
+        </a>
+        <a href="https://github.com/wtdear" target="_blank" class="social-icon" title="GitHub">
+          <img src="icons/github.svg" alt="GitHub">
+        </a>
+        <a href="mailto:den.kolbaya@yandex.ru" class="social-icon" title="Email">
+          <img src="icons/mail.svg" alt="Email">
+        </a>
+      </div>
+    </div>
+    
+    <div class="footer-section">
+      <h3 class="footer-title">You can write me here</h3>
+      <div class="footer-contact">
+        <a href="https://t.me/kolbaya1" class="contact-button" target="_blank">
+          <span>💬 Write message</span>
+          <span class="button-glow"></span>
+        </a>
+        <p class="copyright">© 2026 Johhny Kolbaya<br><span class="cosmic-text">made with 💜</span></p>
+      </div>
+    </div>
+  </div>
+</footer>
   </main>
 
   <canvas id="bgCanvas"></canvas>
