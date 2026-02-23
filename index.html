@@ -15,7 +15,7 @@
       </a>
       <div class="title">
         <h1>Johhny Kolbaya</h1>
-        <a class="email" href="mailto:den.kolbaya@yandex.ru">den.kolbaya@yandex.ru</a>
+        <a class="email" href="https://360.yandex.ru/mail/" target="_blank">den.kolbaya@yandex.ru</a>
       </div>
     </div>
     <nav class="topnav" aria-label="Навигация">
@@ -68,32 +68,36 @@
         </div>
         <div class="section-body">
             <div class="games-grid">
-                <div class="game-card" onclick="window.location.href='games/snake/index.html';">
-                    <div class="game-icon">
-                        <img src="games/snake/snake.png" alt="Snake Game" class="game-icon-img">
+                <a href="games/snake/index.html" target="_blank" class="game-card-link">
+                    <div class="game-card">
+                        <div class="game-icon">
+                            <img src="games/snake/snake.png" alt="Snake Game" class="game-icon-img">
+                        </div>
+                        <div class="game-info">
+                            <h3>snake game</h3>
+                            <p>classic snake</p>
+                        </div>
+                        <div class="play-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
                     </div>
-                    <div class="game-info">
-                        <h3>snake game</h3>
-                        <p>classic snake</p>
+                </a>
+              
+                <a href="games/rpg/index.html" target="_blank" class="game-card-link">
+                    <div class="game-card">
+                        <div class="game-icon"> 
+                            <img src="icons/rpg.svg" alt="Indi RPG Game" class="game-icon-img">
+                        </div>
+                        <div class="game-info">
+                            <h3>Medieval RPG</h3>
+                            <p>click to download</p>
+                        </div>
+                        <div class="play-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
                     </div>
-                    <div class="play-arrow">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
-
-                <div class="game-card" onclick="window.location.href='games/rpg/index.html';">
-                    <div class="game-icon"> 
-                        <img src="icons/rpg.svg" alt="Indi RPG Game" class="game-icon-img">
-                    </div>
-                    <div class="game-info">
-                        <h3>Medieval RPG (python)</h3>
-                        <p>click to download</p>
-                    </div>
-                    <div class="play-arrow">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
-
+                </a>
+              
                 <div class="game-card coming-soon">
                     <div class="game-icon">
                         <i class="fas fa-clock"></i>
@@ -103,39 +107,39 @@
                         <p>idk when</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
-
-  <!-- APPS -->
-    <section id="games" class="section bento-card">
+    
+    <!-- APPLICATIONS -->
+    <section id="apps" class="section bento-card"> <!-- изменен id с games на apps -->
         <div class="section-head">
             <h2>Applications</h2>
             <div class="muted sub-note">if u want, can use this)</div>
         </div>
         <div class="section-body">
-                <div class="game-card" onclick="window.location.href='https://github.com/wtdear/todo_list';">
+            <a href="https://github.com/wtdear/todo_list" target="_blank" class="game-card-link">
+                <div class="game-card">
                     <div class="game-icon"> 
                         <img src="icons/todo.svg" alt="simple console application" class="game-icon-img">
                     </div>
                     <div class="game-info">
-                        <h3>To-Do List (python)</h3>
+                        <h3>To-Do List</h3>
                         <p>click to download</p>
                     </div>
                     <div class="play-arrow">
                         <i class="fas fa-arrow-right"></i>
                     </div>
                 </div>
-
-                <div class="game-card coming-soon">
-                    <div class="game-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="game-info">
-                        <h3>soon...</h3>
-                        <p>idk when</p>
-                    </div>
+            </a>
+            <br>
+            <div class="game-card coming-soon">
+                <div class="game-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="game-info">
+                    <h3>soon...</h3>
+                    <p>idk when</p>
                 </div>
             </div>
         </div>
@@ -171,13 +175,14 @@
       <div class="section-body">
         <div class="contacts-grid">
           </a>
-          <a class="contact-card" href="mailto:den.kolbaya@yandex.ru" title="Email">
+          <a class="contact-card" target="_blank" href="https://360.yandex.ru/mail/" title="Email">
             <img src="icons/mail.svg" alt="Email">
           </a>
         </div>
       </div>
     </section>
 
+<!-- FOOTER -->  
 <footer class="footer bento-card">
   <div class="footer-content">
     <div class="footer-section">
@@ -185,7 +190,6 @@
       <div class="footer-links">
         <a href="#about" class="footer-link">✦ About me</a>
         <a href="#skills" class="footer-link">⚡ Skills</a>
-        <a href="#contacts" class="footer-link">📡 Contact</a>
       </div>
     </div>
     
@@ -198,7 +202,7 @@
         <a href="https://github.com/wtdear" target="_blank" class="social-icon" title="GitHub">
           <img src="icons/github.svg" alt="GitHub">
         </a>
-        <a href="mailto:den.kolbaya@yandex.ru" class="social-icon" title="Email">
+        <a href="https://360.yandex.ru/mail/" target="_blank" class="social-icon" title="Email">
           <img src="icons/mail.svg" alt="Email">
         </a>
       </div>
@@ -216,6 +220,7 @@
     </div>
   </div>
 </footer>
+
   </main>
 
   <canvas id="bgCanvas"></canvas>
