@@ -4,6 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Johhny Kolbaya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="icons/favicon.png">
 </head>
@@ -11,7 +15,7 @@
   <header class="header bento-card">
     <div class="header-left">
       <a href="https://t.me/kolbaya1" target="_blank" class="avatar-link">
-        <div class="avatar"><img src="avatar.jpg" alt="Avatar"></div>
+        <div class="avatar"><img src="icons/avatars/avatar.jpg" alt="Avatar"></div>
       </a>
       <div class="title">
         <h1>Johhny Kolbaya</h1>
@@ -25,12 +29,11 @@
     </nav>
   </header>
 
-  <!-- ABOUT -->
   <main class="layout">
     <section id="about" class="section bento-card">
       <div class="section-head">
         <h2>About</h2>
-        <div class="muted">mini about <3</div>
+        <div class="muted">mini about</div>
       </div>
       <div class="section-body">
         <p>
@@ -39,8 +42,7 @@
       </div>
     </section>
 
-  <!-- HUBS -->
-  <section id="hubs" class="section bento-card">
+    <section id="hubs" class="section bento-card">
       <div class="section-head">
         <h2>Hubs</h2>
         <div class="muted sub-note">like this</div>
@@ -48,37 +50,33 @@
       <div class="section-body">
         <div class="contacts-grid">
           <a class="contact-card" href="https://t.me/waytofreed" target="_blank" title="Telegram channel">
-            <img src="icons/tg.svg" alt="Telegram channel">
+            <i class="fab fa-telegram-plane contact-icon"></i>
           </a>
           <a class="contact-card" href="https://github.com/wtdear" target="_blank" title="GitHub">
-            <img src="icons/github.svg" alt="GitHub">
-          </a>
-          <a class="contact-card" href="https://leetcode.com/u/wtdear/" target="_blank" title="LeetCode">
-            <img src="icons/leetcode.svg" alt="LeetCode">
+            <i class="fab fa-github contact-icon"></i>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- GAMES -->
     <section id="games" class="section bento-card">
         <div class="section-head">
             <h2>Games</h2>
-            <div class="muted sub-note">play ᗜ⩊ᗜ</div>
+            <div class="muted sub-note">u can play there</div>
         </div>
         <div class="section-body">
             <div class="games-grid">
                 <a href="games/snake/index.html" target="_blank" class="game-card-link">
                     <div class="game-card">
                         <div class="game-icon">
-                            <img src="games/snake/snake.png" alt="Snake Game" class="game-icon-img">
+                            <i class="fas fa-gamepad game-icon-fa"></i>
                         </div>
                         <div class="game-info">
                             <h3>snake game</h3>
                             <p>classic snake</p>
                         </div>
                         <div class="play-arrow">
-                            <i class="fas fa-arrow-right"></i>
+                            <i class="fas fa-chevron-right"></i>
                         </div>
                     </div>
                 </a>
@@ -86,21 +84,21 @@
                 <a href="games/rpg/index.html" target="_blank" class="game-card-link">
                     <div class="game-card">
                         <div class="game-icon"> 
-                            <img src="icons/rpg.svg" alt="Indi RPG Game" class="game-icon-img">
+                            <i class="fas fa-jedi game-icon-fa"></i>
                         </div>
                         <div class="game-info">
                             <h3>Medieval RPG</h3>
                             <p>click to download</p>
                         </div>
                         <div class="play-arrow">
-                            <i class="fas fa-arrow-right"></i>
+                            <i class="fas fa-chevron-right"></i>
                         </div>
                     </div>
                 </a>
               
                 <div class="game-card coming-soon">
                     <div class="game-icon">
-                        <i class="fas fa-clock"></i>
+                        <i class="far fa-clock"></i>
                     </div>
                     <div class="game-info">
                         <h3>soon...</h3>
@@ -111,53 +109,41 @@
         </div>
     </section>
     
-    <!-- APPLICATIONS -->
-    <section id="apps" class="section bento-card"> <!-- изменен id с games на apps -->
+    <section id="apps" class="section bento-card">
         <div class="section-head">
             <h2>Applications</h2>
-            <div class="muted sub-note">if u want, can use this)</div>
+            <div class="muted sub-note">usefull programs for your life</div>
         </div>
         <div class="section-body">
-            <a href="https://github.com/wtdear/todo_list" target="_blank" class="game-card-link">
-                <div class="game-card">
-                    <div class="game-icon"> 
-                        <img src="icons/todo.svg" alt="simple console application" class="game-icon-img">
+            <div class="apps-grid">
+                <a href="https://github.com/wtdear/todo_list" target="_blank" class="game-card-link">
+                    <div class="game-card">
+                        <div class="game-icon"> 
+                            <i class="fas fa-list-check game-icon-fa"></i>
+                        </div>
+                        <div class="game-info">
+                            <h3>To-Do List</h3>
+                            <p>click to download</p>
+                        </div>
+                        <div class="play-arrow">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>          
+                </a>
+                <div class="game-card coming-soon">
+                    <div class="game-icon">
+                        <i class="far fa-clock"></i>
                     </div>
                     <div class="game-info">
-                        <h3>To-Do List</h3>
-                        <p>click to download</p>
+                        <h3>soon...</h3>
+                        <p>idk when</p>
                     </div>
-                    <div class="play-arrow">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>          
-                <div class="game-card">
-                    <div class="game-icon"> 
-                        <img src="icons/chess.svg" alt="simple console chess-game" class="game-icon-img">
-                    </div>
-                    <div class="game-info">
-                        <h3>Chess</h3>
-                        <p>click to download</p>
-                    </div>
-                    <div class="play-arrow">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
-            </a>
-            <br>
-            <div class="game-card coming-soon">
-                <div class="game-icon">
-                    <i class="fas fa-clock"></i>
-                </div>
-                <div class="game-info">
-                    <h3>soon...</h3>
-                    <p>idk when</p>
                 </div>
             </div>
         </div>
     </section>
     
-  <!-- SKILLS -->
+    <!-- Добавить подразделение на навыки -->
     <section id="skills" class="section bento-card">
       <div class="section-head">
         <h2>Skills</h2>
@@ -178,7 +164,6 @@
       </div>
     </section>
 
-    <!-- CONTACTS -->
     <section id="contacts" class="section bento-card">
       <div class="section-head">
         <h2>Contact</h2>
@@ -186,58 +171,53 @@
       </div>
       <div class="section-body">
         <div class="contacts-grid">
-          </a>
           <a class="contact-card" target="_blank" href="https://360.yandex.ru/mail/" title="Email">
-            <img src="icons/mail.svg" alt="Email">
+            <i class="fas fa-envelope contact-icon"></i>
           </a>
         </div>
       </div>
     </section>
 
-<!-- FOOTER -->  
-<footer class="footer bento-card">
-  <div class="footer-content">
-    <div class="footer-section">
-      <h3 class="footer-title">Navigation</h3>
-      <div class="footer-links">
-        <a href="#about" class="footer-link">✦ About me</a>
-        <a href="#skills" class="footer-link">⚡ Skills</a>
+    <footer class="footer bento-card">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 class="footer-title">Navigation</h3>
+          <div class="footer-links">
+            <a href="#about" class="footer-link">✦ About me</a>
+            <a href="#skills" class="footer-link">⚡ Skills</a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3 class="footer-title">Links</h3>
+          <div class="footer-social">
+            <a href="https://t.me/kolbaya1" target="_blank" class="social-icon" title="Telegram">
+              <i class="fab fa-telegram"></i>
+            </a>
+            <a href="https://github.com/wtdear" target="_blank" class="social-icon" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://360.yandex.ru/mail/" target="_blank" class="social-icon" title="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3 class="footer-title">You can write me here</h3>
+          <div class="footer-contact">
+            <a href="https://t.me/kolbaya1" class="contact-button" target="_blank">
+              <span>💬 Write message</span>
+              <span class="button-glow"></span>
+            </a>
+            <p class="copyright">© 2026 Johhny Kolbaya<br><span class="cosmic-text">made with 💜</span></p>
+          </div>
+        </div>
       </div>
-    </div>
-    
-    <div class="footer-section">
-      <h3 class="footer-title">Links</h3>
-      <div class="footer-social">
-        <a href="https://t.me/kolbaya1" target="_blank" class="social-icon" title="Telegram">
-          <img src="icons/tg.svg" alt="TG">
-        </a>
-        <a href="https://github.com/wtdear" target="_blank" class="social-icon" title="GitHub">
-          <img src="icons/github.svg" alt="GitHub">
-        </a>
-        <a href="https://360.yandex.ru/mail/" target="_blank" class="social-icon" title="Email">
-          <img src="icons/mail.svg" alt="Email">
-        </a>
-      </div>
-    </div>
-    
-    <div class="footer-section">
-      <h3 class="footer-title">You can write me here</h3>
-      <div class="footer-contact">
-        <a href="https://t.me/kolbaya1" class="contact-button" target="_blank">
-          <span>💬 Write message</span>
-          <span class="button-glow"></span>
-        </a>
-        <p class="copyright">© 2026 Johhny Kolbaya<br><span class="cosmic-text">made with 💜</span></p>
-      </div>
-    </div>
-  </div>
-</footer>
-
+    </footer>
   </main>
 
   <canvas id="bgCanvas"></canvas>
-
   <script src="scripts/background.js"></script>
-
 </body>
 </html>
