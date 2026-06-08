@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="icons/logo/index.png">
 </head>
 <body>
   <header class="header bento-card">
@@ -19,13 +19,12 @@
       </a>
       <div class="title">
         <h1>Johhny Kolbaya</h1>
-        <a class="email" href="https://360.yandex.ru/mail/" target="_blank">den.kolbaya@yandex.ru</a>
+        <a class="email" href="mailto:den.kolbaya@yandex.ru">den.kolbaya@yandex.ru</a>
       </div>
     </div>
     <nav class="topnav" aria-label="Навигация">
       <a href="#about" class="nav-link active">About</a>
       <a href="#skills" class="nav-link">Skills</a>
-      <a href="#contacts" class="nav-link">Contacts</a>
     </nav>
   </header>
 
@@ -33,7 +32,6 @@
     <section id="about" class="section bento-card">
       <div class="section-head">
         <h2>About</h2>
-        <div class="muted">mini about</div>
       </div>
       <div class="section-body">
         <p>
@@ -45,7 +43,6 @@
     <section id="hubs" class="section bento-card">
       <div class="section-head">
         <h2>Hubs</h2>
-        <div class="muted sub-note">like this</div>
       </div>
       <div class="section-body">
         <div class="contacts-grid">
@@ -66,7 +63,7 @@
         </div>
         <div class="section-body">
             <div class="games-grid">
-                <a href="games/snake/index.html" target="_blank" class="game-card-link">
+                <a href="games/snake/snake.html" target="_blank" class="game-card-link">
                     <div class="game-card">
                         <div class="game-icon">
                             <i class="fas fa-gamepad game-icon-fa"></i>
@@ -81,7 +78,7 @@
                     </div>
                 </a>
               
-                <a href="games/rpg/index.html" target="_blank" class="game-card-link">
+                <a href="games/rpg/rpg_en.html" target="_blank" class="game-card-link">
                     <div class="game-card">
                         <div class="game-icon"> 
                             <i class="fas fa-jedi game-icon-fa"></i>
@@ -143,40 +140,37 @@
         </div>
     </section>
     
-    <!-- Добавить подразделение на навыки -->
     <section id="skills" class="section bento-card">
-      <div class="section-head">
-        <h2>Skills</h2>
-        <div class="muted sub-note">it gets better from here</div>
-      </div>
-      <div class="section-body">
-        <div class="skills-grid">
-          <div class="skill-chip">C#</div>
-          <div class="skill-chip">SQL</div>
-          <div class="skill-chip">Python</div>
-          <div class="skill-chip">C++</div>
-          <div class="skill-chip">Windows</div>
-          <div class="skill-chip">Linux</div>
-          <div class="skill-chip">HTML</div>
-          <div class="skill-chip">CSS</div>
-          <div class="skill-chip">JS</div>
-        </div>
-      </div>
-    </section>
+          <div class="section-head">
+            <h2>Skills</h2>
+          </div>
+          <div class="section-body">
+            <div class="skills-columns">
 
-    <section id="contacts" class="section bento-card">
-      <div class="section-head">
-        <h2>Contact</h2>
-        <div class="muted sub-note">please write to me</div>
-      </div>
-      <div class="section-body">
-        <div class="contacts-grid">
-          <a class="contact-card" target="_blank" href="https://360.yandex.ru/mail/" title="Email">
-            <i class="fas fa-envelope contact-icon"></i>
-          </a>
-        </div>
-      </div>
-    </section>
+              <div class="skills-column">
+                <h3 class="column-title">Strengths</h3>
+                <div class="skills-grid">
+                  <div class="skill-chip">C#</div>
+                  <div class="skill-chip">SQL</div>
+                  <div class="skill-chip">Python</div>
+                  <div class="skill-chip">Windows</div>
+                  <div class="skill-chip">Linux</div>
+                  <div class="skill-chip">HTML</div>
+                  <div class="skill-chip">CSS</div>
+                </div>
+              </div>
+
+              <div class="skills-column">
+                <h3 class="column-title">Weaknesses</h3>
+                <div class="skills-grid">
+                  <div class="skill-chip">C++</div>
+                  <div class="skill-chip">JS</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
 
     <footer class="footer bento-card">
       <div class="footer-content">
@@ -197,7 +191,7 @@
             <a href="https://github.com/wtdear" target="_blank" class="social-icon" title="GitHub">
               <i class="fab fa-github"></i>
             </a>
-            <a href="https://360.yandex.ru/mail/" target="_blank" class="social-icon" title="Email">
+            <a href="mailto:den.kolbaya@yandex.ru" class="social-icon" title="Email">
               <i class="fas fa-envelope"></i>
             </a>
           </div>

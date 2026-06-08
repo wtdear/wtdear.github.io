@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RPG World — Википедия игры</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="rpg_style.css">
+  <link rel="icon" type="image/png" href="icons/logo/rpg.png">
+</head>
+<body>
+  <div class="glow-bg"></div>
+
+  <a href="../../index.html" class="back-home bento-card">
+    <i class="fas fa-arrow-left"></i> На главную
+  </a>
+
+  <div class="wiki-container">
+    <header class="game-header bento-card">
+
+      <div class="lang-switcher">
+        <a href="rpg_ru.html" class="lang-btn active">RU</a>
+        <a href="rpg_en.html" class="lang-btn">EN</a>
+      </div>
+
+      <div class="header-logo">
+        <i class="fas fa-dragon"></i>
+      </div>
+      <h1>RPG World</h1>
+      <p class="subtitle">Официальная Википедия игры</p>
+      
+      <nav class="wiki-nav">
+        <a href="#about" class="nav-link"><i class="fas fa-info-circle"></i> Об игре</a>
+        <a href="#install" class="nav-link"><i class="fas fa-download"></i> Установка</a>
+        <a href="#gameplay" class="nav-link"><i class="fas fa-gamepad"></i> Геймплей</a>
+        <a href="#repo" class="nav-link"><i class="fab fa-github"></i> Репозиторий</a>
+      </nav>
+    </header>
+
+    <main class="wiki-grid">
+      
+      <section id="about" class="section bento-card">
+        <div class="section-title">
+          <i class="fas fa-book-open"></i>
+          <h2>О игре</h2>
+        </div>
+        <div class="section-content">
+          <p>
+            <strong class="highlight-text">RPG World</strong> — это захватывающая текстовая RPG-игра, полностью написанная на <i class="fab fa-python" style="color: #3776AB;"></i> Python. 
+            Здесь вы берёте на себя роль искателя приключений, управляете действиями героя, исследуете опасный мир, сражаетесь с мифическими монстрами и постоянно развиваете свои характеристики.
+          </p>
+          <p>Игра выполнена в классическом консольном стиле, возвращающем к истокам текстовых ролевых систем.</p>
+        </div>
+      </section>
+
+      <section id="install" class="section bento-card">
+        <div class="section-title">
+          <i class="fas fa-terminal"></i>
+          <h2>Как установить и запустить</h2>
+        </div>
+        <div class="section-content">
+          <ol class="styled-list">
+            <li>
+              <span class="step-num">01</span>
+              <div class="step-content">
+                <p>Скачайте или клонируйте репозиторий проекта с GitHub.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">02</span>
+              <div class="step-content">
+                <p>Убедитесь, что на вашем компьютере установлен <strong>Python 3.8</strong> или новее.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">03</span>
+              <div class="step-content">
+                <p>Откройте консоль, терминал или командную строку в папке с игрой.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">04</span>
+              <div class="step-content">
+                <p>Запустите команду для старта:</p>
+                <div class="code-wrapper">
+                  <pre><code>python main.py</code></pre>
+                  <button class="copy-btn" onclick="copyCode('python main.py', this)"><i class="far fa-copy"></i></button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">05</span>
+              <div class="step-content">
+                <p>В Windows вы также можете просто дважды кликнуть на файл автоматического запуска:</p>
+                <div class="code-wrapper">
+                  <pre><code>play.bat</code></pre>
+                  <button class="copy-btn" onclick="copyCode('play.bat', this)"><i class="far fa-copy"></i></button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">06</span>
+              <div class="step-content">
+                <p>Готово! Нажимайте <kbd>Enter</kbd> для перелистывания диалогов и делайте свой выбор.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="gameplay" class="section bento-card">
+        <div class="section-title">
+          <i class="fas fa-swords"></i>
+          <h2>Геймплей и механики</h2>
+        </div>
+        <div class="section-content">
+          <p>Игровой процесс полностью построен на текстовом погружении и интерактивном выборе действий:</p>
+          <div class="features-grid">
+            <div class="feature-item">
+              <i class="fas fa-compass"></i>
+              <h4>Исследования</h4>
+              <p>Путешествуйте по таинственным локациям мира.</p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-skull"></i>
+              <h4>Сражения</h4>
+              <p>Пошаговые битвы с процедурно генерируемыми врагами.</p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-backpack"></i>
+              <h4>Инвентарь</h4>
+              <p>Поиск редких артефактов, экипировки и зелий.</p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-sparkles"></i>
+              <h4>Прокачка</h4>
+              <p>Распределение очков опыта и улучшение боевых навыков.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="repo" class="section bento-card highlight-box">
+        <div class="section-title">
+          <i class="fab fa-github"></i>
+          <h2>GitHub Репозиторий</h2>
+        </div>
+        <div class="section-content repo-action">
+          <p>Весь исходный код проекта полностью открыт и доступен для изучения, модификации и пул-реквестов.</p>
+          <a href="https://github.com/wtdear/Python_miniRPG" target="_blank" class="github-btn">
+            <i class="fab fa-github"></i>
+            <span>Открыть репозиторий</span>
+            <i class="fas fa-external-link-alt small-icon"></i>
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="wiki-footer">
+      <p>© 2026 RPG World Wiki • Создано в едином стиле Вселенной</p>
+    </footer>
+  </div>
+
+  <script src="rpg_script.js"></script>
+</body>
+</html>

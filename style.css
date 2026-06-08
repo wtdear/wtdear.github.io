@@ -302,6 +302,27 @@ body {
   gap: 8px;
 }
 
+.skills-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.column-title {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0 0 12px 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .skills-columns {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
 .skill-chip {
   padding: 6px 14px;
   font-size: 0.85rem;

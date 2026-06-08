@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RPG World — Game Wiki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="rpg_style.css">
+  <link rel="icon" type="image/png" href="icons/logo/rpg.png">
+</head>
+<body>
+  <div class="glow-bg"></div>
+
+  <a href="../../index.html" class="back-home bento-card">
+    <i class="fas fa-arrow-left"></i> Home
+  </a>
+
+  <div class="wiki-container">
+    <header class="game-header bento-card">
+
+      <div class="lang-switcher">
+        <a href="rpg_ru.html" class="lang-btn">RU</a>
+        <a href="rpg_en.html" class="lang-btn active">EN</a>
+      </div>
+
+      <div class="header-logo">
+        <i class="fas fa-dragon"></i>
+      </div>
+      <h1>RPG World</h1>
+      <p class="subtitle">Official Game Wiki</p>
+      
+      <nav class="wiki-nav">
+        <a href="#about" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+        <a href="#install" class="nav-link"><i class="fas fa-download"></i> Installation</a>
+        <a href="#gameplay" class="nav-link"><i class="fas fa-gamepad"></i> Gameplay</a>
+        <a href="#repo" class="nav-link"><i class="fab fa-github"></i> Repository</a>
+      </nav>
+    </header>
+
+    <main class="wiki-grid">
+      
+      <section id="about" class="section bento-card">
+        <div class="section-title">
+          <i class="fas fa-book-open"></i>
+          <h2>About the Game</h2>
+        </div>
+        <div class="section-content">
+          <p>
+            <strong class="highlight-text">RPG World</strong> is an immersive text-based RPG game completely written in <i class="fab fa-python" style="color: #3776AB;"></i> Python. 
+            Step into the shoes of a brave adventurer, manage your hero's decisions, explore a treacherous world, battle mythical monsters, and consistently upgrade your stats.
+          </p>
+          <p>The game is crafted in a classic console style, returning to the roots of tabletop role-playing systems, making it perfect for both a fun playthrough and studying RPG code architecture.</p>
+        </div>
+      </section>
+
+      <section id="install" class="section bento-card">
+        <div class="section-title">
+          <i class="fas fa-terminal"></i>
+          <h2>How to Install & Run</h2>
+        </div>
+        <div class="section-content">
+          <ol class="styled-list">
+            <li>
+              <span class="step-num">01</span>
+              <div class="step-content">
+                <p>Download or clone the project repository from GitHub.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">02</span>
+              <div class="step-content">
+                <p>Ensure that you have <strong>Python 3.8</strong> or newer installed on your computer.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">03</span>
+              <div class="step-content">
+                <p>Open your console, terminal, or command prompt inside the game folder.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">04</span>
+              <div class="step-content">
+                <p>Run the initialization command:</p>
+                <div class="code-wrapper">
+                  <pre><code>python main.py</code></pre>
+                  <button class="copy-btn" onclick="copyCode('python main.py', this)"><i class="far fa-copy"></i></button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">05</span>
+              <div class="step-content">
+                <p>On Windows, you can alternatively double-click the auto-run file:</p>
+                <div class="code-wrapper">
+                  <pre><code>play.bat</code></pre>
+                  <button class="copy-btn" onclick="copyCode('play.bat', this)"><i class="far fa-copy"></i></button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">06</span>
+              <div class="step-content">
+                <p>All set! Press <kbd>Enter</kbd> to scroll through dialogues and make your choices.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="gameplay" class="section bento-card">
+        <div class="section-title">
+          <i class="fas fa-swords"></i>
+          <h2>Gameplay Mechanics</h2>
+        </div>
+        <div class="section-content">
+          <p>The experience relies heavily on text immersion and interactive decision-making, offering players various features:</p>
+          <div class="features-grid">
+            <div class="feature-item">
+              <i class="fas fa-compass"></i>
+              <h4>Exploration</h4>
+              <p>Travel through mysterious and changing game environments.</p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-skull"></i>
+              <h4>Combat</h4>
+              <p>Turn-based battles with procedurally generated enemies.</p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-backpack"></i>
+              <h4>Inventory</h4>
+              <p>Discover rare artifacts, powerful gear, and vital potions.</p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-sparkles"></i>
+              <h4>Progression</h4>
+              <p>Allocate experience points and enhance your combat skills.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="repo" class="section bento-card highlight-box">
+        <div class="section-title">
+          <i class="fab fa-github"></i>
+          <h2>GitHub Repository</h2>
+        </div>
+        <div class="section-content repo-action">
+          <p>The entire source code is completely open-source and ready for exploration, modification, and pull requests.</p>
+          <a href="https://github.com/wtdear/Python_miniRPG" target="_blank" class="github-btn">
+            <i class="fab fa-github"></i>
+            <span>View Repository</span>
+            <i class="fas fa-external-link-alt small-icon"></i>
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="wiki-footer">
+      <p>© 2026 RPG World Wiki • Powered by Bento Universe Design</p>
+    </footer>
+  </div>
+
+  <script src="rpg_script.js"></script>
+</body>
+</html>
