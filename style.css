@@ -481,3 +481,26 @@ body {
     gap: 24px;
   }
 }
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.tech-chip {
+  padding: 3px 7px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.2;
+  transition: var(--transition);
+}
+
+.game-card-link:hover .tech-chip {
+  border-color: rgba(168, 85, 247, 0.25);
+  color: #cbd5e1;
+}
