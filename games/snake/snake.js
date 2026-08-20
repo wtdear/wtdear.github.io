@@ -8,7 +8,7 @@ class SnakeGame {
         this.food = {};
         this.direction = 'right';
         this.directionQueue = [];
-        this.gameSpeed = 120;
+        this.gameSpeed = 100;
         this.score = 0;
         this.highScore = localStorage.getItem('snakeHighScore') || 0;
         this.level = 1;
