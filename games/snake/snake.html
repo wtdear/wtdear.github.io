@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Snake Game | Johhny Kolbaya</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,12 +19,13 @@
     <div class="game-container">
         <div class="game-header bento-card">
             <h1>Snake</h1>
-            <p>classic snake game</p>
+            <p>classic snake game · keyboard, swipe or touch controls</p>
         </div>
         
         <div class="game-board">
             <div class="canvas-wrapper bento-card">
-                <canvas id="gameCanvas" width="600" height="600"></canvas>
+                <canvas id="gameCanvas" width="600" height="600" aria-label="Snake game board"></canvas>
+                <div class="board-hint"><i class="fas fa-hand-pointer"></i> Swipe on the board or use the controls below</div>
             </div>
             
             <div class="game-controls">
@@ -67,6 +68,19 @@
                 </div>
             </div>
             
+            <div class="leaderboard-panel bento-card">
+                <div class="panel-heading">
+                    <h3><i class="fas fa-ranking-star"></i> leaderboard</h3>
+                    <span class="dev-badge">in development</span>
+                </div>
+                <div class="leaderboard-list">
+                    <div class="leaderboard-row"><span>🥇 <b>Player 1</b></span><span>???</span></div>
+                    <div class="leaderboard-row"><span>🥈 <b>Player 2</b></span><span>???</span></div>
+                    <div class="leaderboard-row"><span>🥉 <b>Player 3</b></span><span>???</span></div>
+                </div>
+                <p class="leaderboard-note"><i class="fas fa-database"></i> Online scores will appear here after the database is connected.</p>
+            </div>
+
             <div class="controls-panel bento-card">
                 <h3><i class="fas fa-gamepad"></i> controls</h3>
                 <div class="control-keys">
@@ -127,12 +141,12 @@
             <button id="closeGameOver" class="close-game-over">
                 <i class="fas fa-times"></i>
             </button>
-            <h2>game over</h2>
+            <h2>Game Over!</h2>
             <p style="color: var(--muted);">your score:</p>
             <div class="game-over-score">0</div>
             <div class="game-over-buttons">
                 <button id="playAgainBtn" class="btn btn-start">
-                    <i class="fas fa-redo"></i> play again
+                    <i class="fas fa-redo"></i> Play Again
                 </button>
             </div>
         </div>

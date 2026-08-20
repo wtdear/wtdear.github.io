@@ -8,7 +8,7 @@ class SnakeGame {
         this.food = {};
         this.direction = 'right';
         this.directionQueue = [];
-        this.gameSpeed = 150;
+        this.gameSpeed = 120;
         this.score = 0;
         this.highScore = localStorage.getItem('snakeHighScore') || 0;
         this.level = 1;
@@ -67,12 +67,20 @@ class SnakeGame {
             if (!this.isPlaying || this.isPaused) return;
             
             const key = e.key.toLowerCase();
+            const gameKeys = ['arrowup', 'arrowdown', 'arrowleft', 'arrowright', 'w', 'a', 's', 'd', ' '];
+
+            // Не даём браузеру прокручивать страницу во время игры.
+            // Особенно важно для стрелок и Space.
+            if (gameKeys.includes(key)) {
+                e.preventDefault();
+            }
+
             switch(key) {
                 case 'arrowup': case 'w': this.queueDirection('up'); break;
                 case 'arrowdown': case 's': this.queueDirection('down'); break;
                 case 'arrowleft': case 'a': this.queueDirection('left'); break;
                 case 'arrowright': case 'd': this.queueDirection('right'); break;
-                case ' ': e.preventDefault(); this.togglePause(); break;
+                case ' ': this.togglePause(); break;
             }
         });
 
