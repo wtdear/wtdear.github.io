@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="description"
+        content="Weather Forecast — current weather and 5 day forecast."
+    >
+
+    <title>Weather Forecast</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background-glow background-glow-one"></div>
+    <div class="background-glow background-glow-two"></div>
+
+    <main class="weather-app">
+
+        <!-- Header -->
+
+        <header class="app-header">
+
+            <a
+                href="../../index.html"
+                class="back-button"
+                aria-label="Back to portfolio"
+            >
+                <i class="fas fa-arrow-left"></i>
+                <span>Portfolio</span>
+            </a>
+
+            <div class="app-title">
+                <div class="app-title-icon">
+                    <i class="fas fa-cloud-sun"></i>
+                </div>
+
+                <div>
+                    <span class="app-label">APPLICATION</span>
+                    <h1>Weather Forecast</h1>
+                </div>
+            </div>
+
+            <div class="unit-switcher" aria-label="Temperature unit">
+
+                <button
+                    type="button"
+                    class="unit-button active"
+                    data-unit="C"
+                >
+                    °C
+                </button>
+
+                <button
+                    type="button"
+                    class="unit-button"
+                    data-unit="F"
+                >
+                    °F
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- Search -->
+
+        <section class="search-section">
+
+            <form
+                class="search-form"
+                id="weatherForm"
+                autocomplete="off"
+            >
+
+                <div class="search-input">
+
+                    <i class="fas fa-location-dot"></i>
+
+                    <input
+                        type="text"
+                        id="cityInput"
+                        placeholder="Enter city..."
+                        aria-label="City"
+                        maxlength="100"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="clear-button"
+                        id="clearButton"
+                        aria-label="Clear search"
+                        hidden
+                    >
+                        <i class="fas fa-xmark"></i>
+                    </button>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="search-button"
+                    id="searchButton"
+                >
+                    <i class="fas fa-magnifying-glass"></i>
+                    <span>Search</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="location-button"
+                    id="locationButton"
+                    title="Use my location"
+                    aria-label="Use my location"
+                >
+                    <i class="fas fa-crosshairs"></i>
+                </button>
+
+            </form>
+
+            <div
+                class="status"
+                id="status"
+                role="status"
+                aria-live="polite"
+            ></div>
+
+        </section>
+
+
+        <!-- Weather content -->
+
+        <section
+            class="weather-content"
+            id="weatherContent"
+            aria-live="polite"
+        >
+
+            <!-- Empty state -->
+
+            <div class="empty-state" id="emptyState">
+
+                <div class="empty-icon">
+                    <i class="fas fa-cloud-sun"></i>
+                </div>
+
+                <h2>Check the weather</h2>
+
+                <p>
+                    Search for a city or use your current location
+                    to see the weather forecast.
+                </p>
+
+                <button
+                    type="button"
+                    class="location-main-button"
+                    id="locationMainButton"
+                >
+                    <i class="fas fa-location-crosshairs"></i>
+                    Use my location
+                </button>
+
+            </div>
+
+
+            <!-- Weather result -->
+
+            <div
+                class="weather-result"
+                id="weatherResult"
+                hidden
+            >
+
+                <!-- Current weather -->
+
+                <section class="current-card">
+
+                    <div class="current-top">
+
+                        <div class="location-info">
+
+                            <div class="location-name">
+                                <i class="fas fa-location-dot"></i>
+                                <span id="weatherCity">---</span>
+                            </div>
+
+                            <div
+                                class="weather-date"
+                                id="weatherDate"
+                            >
+                                ---
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="weather-condition"
+                            id="weatherCondition"
+                        >
+                            ---
+                        </div>
+
+                    </div>
+
+
+                    <div class="current-main">
+
+                        <div
+                            class="weather-icon-large"
+                            id="weatherIcon"
+                        >
+                            <i class="fas fa-cloud"></i>
+                        </div>
+
+                        <div class="temperature-wrapper">
+
+                            <div
+                                class="temperature"
+                                id="weatherTemperature"
+                            >
+                                --°
+                            </div>
+
+                            <div
+                                class="feels-like"
+                                id="weatherFeels"
+                            >
+                                Feels like --°
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="weather-details">
+
+                        <div class="detail-card">
+
+                            <div class="detail-icon">
+                                <i class="fas fa-droplet"></i>
+                            </div>
+
+                            <div class="detail-content">
+                                <span>Humidity</span>
+                                <strong id="weatherHumidity">--%</strong>
+                            </div>
+
+                        </div>
+
+
+                        <div class="detail-card">
+
+                            <div class="detail-icon">
+                                <i class="fas fa-wind"></i>
+                            </div>
+
+                            <div class="detail-content">
+                                <span>Wind</span>
+                                <strong id="weatherWind">--</strong>
+                            </div>
+
+                        </div>
+
+
+                        <div class="detail-card">
+
+                            <div class="detail-icon">
+                                <i class="fas fa-compass"></i>
+                            </div>
+
+                            <div class="detail-content">
+                                <span>Direction</span>
+                                <strong id="weatherWindDirection">--</strong>
+                            </div>
+
+                        </div>
+
+
+                        <div class="detail-card">
+
+                            <div class="detail-icon">
+                                <i class="fas fa-gauge-high"></i>
+                            </div>
+
+                            <div class="detail-content">
+                                <span>Pressure</span>
+                                <strong id="weatherPressure">--</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="sun-info">
+
+                        <div class="sun-item">
+
+                            <i class="fas fa-sunrise"></i>
+
+                            <div>
+                                <span>Sunrise</span>
+                                <strong id="weatherSunrise">--:--</strong>
+                            </div>
+
+                        </div>
+
+
+                        <div class="sun-line"></div>
+
+
+                        <div class="sun-item">
+
+                            <i class="fas fa-sunset"></i>
+
+                            <div>
+                                <span>Sunset</span>
+                                <strong id="weatherSunset">--:--</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- Forecast -->
+
+                <section class="forecast-section">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <span class="section-label">FORECAST</span>
+                            <h2>Next 5 days</h2>
+                        </div>
+
+                        <i class="fas fa-calendar-days"></i>
+
+                    </div>
+
+                    <div
+                        class="forecast-grid"
+                        id="forecastGrid"
+                    ></div>
+
+                </section>
+
+
+                <!-- Last updated -->
+
+                <div class="last-updated">
+                    <i class="fas fa-rotate"></i>
+                    <span id="lastUpdated">---</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Footer -->
+
+        <footer class="app-footer">
+
+            <span>
+                Weather data provided by
+                <a
+                    href="https://openweathermap.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    OpenWeatherMap
+                </a>
+            </span>
+
+            <span class="footer-separator">•</span>
+
+            <span>Johhny Kolbaya</span>
+
+        </footer>
+
+    </main>
+
+
+    <script src="weather.js"></script>
+
+</body>
+</html>

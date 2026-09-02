@@ -8,10 +8,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <!-- Main site styles -->
   <link rel="stylesheet" href="style.css">
+  <!-- Site favicon -->
   <link rel="icon" type="image/png" href="icons/logo/index.png">
 </head>
 <body>
+  <!-- ==================== HEADER ==================== -->
   <header class="header bento-card">
     <div class="header-left">
       <a href="https://t.me/kolbaya1" target="_blank" class="avatar-link">
@@ -29,17 +32,33 @@
   </header>
 
   <main class="layout">
+
+    <!-- ==================== ABOUT ==================== -->
     <section id="about" class="section bento-card">
       <div class="section-head">
         <h2>About</h2>
       </div>
       <div class="section-body">
         <p>
-          Johhny Kolbaya, dear, wtdear, kolbaya — these are all my pseudonyms. I have been programming since the 2020s. I started with Python, using various frameworks to create bots, etc. Later, I moved on to a more in-depth study of other languages and technologies, such as relational databases.
+          Hi, I’m Johnny Kolbaya, a developer focused on building indie applications and
+          exploring new ideas through code. I’m currently a third-year student, constantly
+          learning, experimenting, and improving my skills.
         </p>
+
+        <p>
+          I enjoy turning ideas into real, functional projects, working with different technologies,
+          frameworks, and databases along the way. I’m especially interested in software
+          development, system design, and creating projects that are both useful and enjoyable to use.
+        </p>
+
+        <p>
+          I’m always learning something new and looking for the next project to build.
+        </p>
+
       </div>
     </section>
 
+    <!-- ==================== SOCIAL HUBS ==================== -->
     <section id="hubs" class="section bento-card">
       <div class="section-head">
         <h2>Hubs</h2>
@@ -56,6 +75,7 @@
       </div>
     </section>
 
+    <!-- ==================== GAMES ==================== -->
     <section id="games" class="section bento-card">
         <div class="section-head">
             <h2>Games</h2>
@@ -117,6 +137,7 @@
         </div>
     </section>
     
+    <!-- ==================== APPLICATIONS ==================== -->
     <section id="apps" class="section bento-card">
         <div class="section-head">
             <h2>Applications</h2>
@@ -129,9 +150,15 @@
                         <div class="game-icon"> 
                             <i class="fas fa-list-check game-icon-fa"></i>
                         </div>
+
                         <div class="game-info">
                             <h3>To-Do List</h3>
-                            <p>click to download</p>
+                            <p>download</p>
+                                                    
+                          <div class="project-tech">
+                              <span class="tech-chip">Python 3.8+</span>
+                          </div>
+
                         </div>
 
                         <div class="play-arrow">
@@ -139,6 +166,30 @@
                         </div>
                     </div>          
                 </a>
+
+                <a href="applications/weather/index.html" class="game-card-link">
+                  <div class="game-card">
+                      <div class="game-icon">
+                          <i class="fas fa-cloud-sun game-icon-fa"></i>
+                      </div>
+
+                      <div class="game-info">
+                          <h3>Weather Forecast</h3>
+                          <p>check the weather</p>
+
+                          <div class="project-tech">
+                              <span class="tech-chip">JavaScript</span>
+                              <span class="tech-chip">OpenWeatherMap</span>
+                              <span class="tech-chip">REST API</span>
+                          </div>
+                      </div>
+
+                      <div class="play-arrow">
+                          <i class="fas fa-chevron-right"></i>
+                      </div>
+                  </div>
+              </a>
+
                 <div class="game-card coming-soon">
                     <div class="game-icon">
                         <i class="far fa-clock"></i>
@@ -152,6 +203,7 @@
         </div>
     </section>
     
+    <!-- ==================== SKILLS ==================== -->
     <section id="skills" class="section bento-card">
       <div class="section-head">
         <h2>Skills</h2>
@@ -209,6 +261,7 @@
       </div>
     </section>
 
+    <!-- ==================== FOOTER ==================== -->
     <footer class="footer bento-card">
       <div class="footer-content">
         <div class="footer-section">
@@ -248,6 +301,7 @@
     </footer>
   </main>
 
+  <!-- Animated background -->
   <canvas id="bgCanvas"></canvas>
   <script src="scripts/background.js"></script>
 </body>

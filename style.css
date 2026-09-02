@@ -1,3 +1,7 @@
+/* =========================================================
+   GLOBAL THEME
+   ========================================================= */
+
 :root {
   --bg: #030307;
   --surface: rgba(10, 10, 18, 0.45);
@@ -13,6 +17,10 @@
   --radius: 20px;
   --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+/* =========================================================
+   RESET & BASE
+   ========================================================= */
 
 * {
   box-sizing: border-box;
@@ -50,6 +58,7 @@ body {
   font-family: 'Inter', sans-serif;
   color: var(--text);
   background-color: var(--bg);
+  /* Ambient background glow */
   background-image: 
     radial-gradient(circle at 10% 10%, rgba(168, 85, 247, 0.12), transparent 40%),
     radial-gradient(circle at 90% 90%, rgba(6, 182, 212, 0.1), transparent 40%);
@@ -61,7 +70,15 @@ body {
   align-items: center;
 }
 
-.layout, .header {
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+.layout, /* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
   width: 100%;
   max-width: 1000px;
 }
@@ -72,6 +89,10 @@ body {
   gap: 20px;
   margin-top: 20px;
 }
+
+/* =========================================================
+   GLASSMORPHISM CARDS
+   ========================================================= */
 
 .header, .bento-card {
   background: var(--surface);
@@ -166,6 +187,10 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
 .bento-card:hover {
   border-color: rgba(255, 255, 255, 0.12);
   background: var(--surface-hover);
@@ -201,6 +226,10 @@ body {
   font-size: 0.95rem;
   line-height: 1.6;
 }
+
+/* =========================================================
+   CONTACTS / PROJECT GRIDS
+   ========================================================= */
 
 .contacts-grid, .games-grid, .apps-grid {
   display: grid;
@@ -238,6 +267,10 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+/* =========================================================
+   GAME / APPLICATION CARDS
+   ========================================================= */
+
 .game-card {
   display: flex;
   align-items: center;
@@ -251,6 +284,7 @@ body {
   overflow: hidden;
 }
 
+/* Hover gradient overlay */
 .game-card::before {
   content: '';
   position: absolute;
@@ -319,6 +353,10 @@ body {
   color: var(--muted);
 }
 
+/* =========================================================
+   SKILLS
+   ========================================================= */
+
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
@@ -339,6 +377,10 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
 
 @media (max-width: 768px) {
   .skills-columns {
@@ -363,6 +405,10 @@ body {
   color: #fff;
   transform: translateY(-1px);
 }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 .footer {
   margin-top: 10px;
@@ -471,6 +517,10 @@ body {
   -webkit-text-fill-color: transparent;
   font-weight: 600;
 }
+
+/* =========================================================
+   ANIMATED BACKGROUND
+   ========================================================= */
 
 #bgCanvas {
   position: fixed;
